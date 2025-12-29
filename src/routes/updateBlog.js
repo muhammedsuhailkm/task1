@@ -31,9 +31,9 @@ const enhanceBlogByHeading = async (req, res) => {
     const finalContent = `
 ${improvedContent}
 
-
-
-
+References:
+1. ${topBlogs[0].link}
+2. ${topBlogs[1].link}
 `;
 
     const updatedBlog = await blogService.updateBlogById(
