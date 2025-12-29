@@ -3,16 +3,20 @@ const mongoose = require("mongoose");
 const blog = require("./src/routes/blog");
 const dotenv = require("dotenv");
 const Blog = require("./src/models/article");
+const updateBlog = require("./src/routes/updateBlog");
+const cors = require("cors");
 
 dotenv.config();
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
 app.use("/blog", blog);
+app.use("/updateBlog", updateBlog);
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
