@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const updateBlog = require("../models/updatedArticle");
 
 const blogService = require("../services/blogService");
 const googleService = require("../services/googleServices");
@@ -49,5 +50,23 @@ References:
 };
 
 router.post("/:heading", enhanceBlogByHeading);
+router.delete("/heading/:heading", async (req, res) => {
+  try {
+    const blog = await updateBlog.findOneAndDelete({
+      heading: req.params.heading,
+    });
+
+    if (!blog) {
+      return res.status(404).json({ error: "Blog not found" });
+    }
+
+    res.json({
+      message: "Blog deleted successfully",
+      blog,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 module.exports = router;
