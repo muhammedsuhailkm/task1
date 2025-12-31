@@ -18,3 +18,19 @@ we can scrape any blog from beyond chat website by post method in which the api 
 npm install
 node server.js
 ```
+
+flowchart TD
+A[User provides Blog URL] --> B[Scrape Blog Content]
+B --> C[Store in blogs Collection]
+C --> D[5 Blogs Scraped Successfully]
+
+    D --> E[User calls updateScrap API]
+    E --> F[Send Blog Heading]
+    F --> G[Fetch Old Blog from DB]
+    G --> H[Search Heading via Google Serper API]
+    H --> I[Get Top 2 Similar Blogs]
+    I --> J[Scrape New Blogs]
+    J --> K[Combine Old + New Blogs]
+    K --> L[Send to Gemini Flash LLM API]
+    L --> M[Generate Updated Article]
+    M --> N[Save to updatedBlog Collection]
