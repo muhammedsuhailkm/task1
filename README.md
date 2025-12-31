@@ -3,13 +3,16 @@ BeyondChats Task 1
 ## Description
 
 This project scrapes the 5 oldest blog articles from BeyondChats and provides CRUD APIs to manage them.
-we can scrape any blog from beyond chat website by post method in which the api is "http://localhost:3000/blog/blogs" and in the body add the url of the blog required , then it will scrape the website and store the heading,content, date to the database.
+we can scrape any blog from beyond chat website by post method in which the api is "http://localhost:3000/blog" and "http://localhost:3000/blog/{heading}" for specific blog and in the body add the url of the blog required , then it will scrape the website and store the heading,content, date to the database.
+For getting updated blog ""http://localhost:3000/updatedBlog/{heading}"
+
+For
 
 ## Tech Stack
 
 - Node.js
 - Express.js
-- MongoDB
+- MongoDB Atlas
 - Axios / Cheerio (for scraping)
 
 ## Setup Instructions
